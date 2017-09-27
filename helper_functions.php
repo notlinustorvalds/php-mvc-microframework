@@ -3,14 +3,13 @@
  * \file            helper_functions.php
  * \brief           General utilities for use in the application
  * \since           06 Aug 2014 
- *
- * \todo            Move to directory inaccessible from the web
  */
 
 // ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
 // INCLUDES AND REQUIRES
 // Note creative uses ( Examples 4,5,6 ): http://www.php.net/manual/en/function.include.php
 require_once    __DIR__ . DIRECTORY_SEPARATOR . 'constants.php';
+require_once    __DIR__ . DIRECTORY_SEPARATOR . 'detect-mobile-browsers.php';
 
 
 
