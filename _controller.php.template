@@ -1,0 +1,60 @@
+<?php
+/**
+ * \file    CONTROLLER.php
+ *              %s/CONTROLLER\.php/\=expand("%:t")/g
+ * \brief   --FILL-ME-IN-SILLY!!-- 
+ * \since   _To.DAY_
+ *              %s/_To\.DAY_/\=strftime("%d %b %Y")/
+ *              %s/_Ye\.AR_/\=strftime("%Y")/
+ *
+ */
+
+/// vim search and replace bits:
+///     %s/CONTROLLER\.php/\=expand("%:t")/g
+///     %s/_To\.DAY_/\=strftime("%d %b %Y")/g
+///     %s/_Ye\.AR_/\=strftime("%Y")/g
+
+// ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+// INCLUDES AND REQUIRES
+// Note creative uses ( Examples 4,5,6 ): http://www.php.net/manual/en/function.include.php
+require_once  __DIR__ . DIRECTORY_SEPARATOR . 'path/to/mvc/' . 'package.php';
+
+
+
+// ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+// Controller Execution
+$view   = new Template();
+
+// Common CSS and JS are now loaded from `$module_css` and `$module_js` arrays in package.php
+//array_push( $module_css,
+    //  '//INCLUSION_ADDRESS/css/_' . basename( __FILE__, '.php' ) . '.css'    //  index.php       == _index.css
+    //  '//INCLUSION_ADDRESS/css/' . basename( __FILE__, '.php' ) . '.css'     // not-index.php   == not-index.css
+//);
+//array_push( $module_js,
+    //  '//INCLUSION_ADDRESS/js/_' . basename( __FILE__, '.php' ) . '.js'     //  index.php       == _index.js       
+    //  '//INCLUSION_ADDRESS/js/' . basename( __FILE__, '.php' ) . '.js'      //  not-index.php   == not-index.js    
+//);
+$view->_additional_css  = $module_css;  
+$view->_additional_js   = $module_js;
+
+$view->include_header   = false;
+$view->include_footer   = false;
+$view->include_toolbar  = false;
+
+$view->title    = '';
+
+// kill your temp vars as you no longer need them!
+unset(  );
+
+// // // // // // //
+// RENDER!!!
+//
+// with extension-less URL's, we have to be absolutely certain that we point at a location **with** a
+// '.php' extension.  feynman is being picky -- it returns `basename( __FILE__ )` for an extension-less
+// URL as 'foo' -- not 'foo.php'.  Thus, we strip off the extension (just in-case it IS present) and
+// add it back on.  Ugly, yes... but it works.
+$view->content = $view->render( __DIR__ . DIRECTORY_SEPARATOR
+        . 'views' . DIRECTORY_SEPARATOR . basename( __FILE__, '.php' ) . '-view.php' );
+
+echo $view->render( '/path/to/mvc' . DIRECTORY_SEPARATOR . 'page-shell.php' );
+
