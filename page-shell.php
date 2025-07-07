@@ -14,9 +14,10 @@
 
     <!-- ********** Cascading Style Sheets ********** -->
 <?php 
+// yes: make a copy of this.
 $urls   = $this->_additional_css_urls;
 reset( $urls );
-foreach( $urls as &$url_key => &$url ): ?>
+foreach( $urls as $url_key => &$url )  : ?>
     <link rel="stylesheet" type="text/css" href="<?php echo $url ?>" />
 <?php 
 endforeach;   ?>
@@ -25,10 +26,11 @@ endforeach;   ?>
     <!--[if lt IE 9]>
         <script type="text/javascript" src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-<?php 
+<?php
+// yes: make a copy of this
 $urls   = $this->_additional_js_urls;
 reset( $urls );  
-foreach( $urls as &$url_key => &$url ): ?>
+foreach( $urls as $url_key => &$url )  : ?>
     <script type="text/javascript" src="<?php echo $url ?>"></script>
 <?php 
 endforeach;
