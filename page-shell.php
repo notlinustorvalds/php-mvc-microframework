@@ -16,10 +16,10 @@
 <?php 
 $urls   = $this->_additional_css_urls;
 reset( $urls );
-while( list( $urlKey, $url ) = each( $urls ) )    : ?>
+foreach( $urls as &$url_key => &$url ): ?>
     <link rel="stylesheet" type="text/css" href="<?php echo $url ?>" />
 <?php 
-endwhile;   ?>
+endforeach;   ?>
 
     <!-- ********** Javascript Includes ********** -->
     <!--[if lt IE 9]>
@@ -27,11 +27,11 @@ endwhile;   ?>
     <![endif]-->
 <?php 
 $urls   = $this->_additional_js_urls;
-reset( $urls );
-while( list( $urlKey, $url ) = each( $urls ) )    : ?>
+reset( $urls );  
+foreach( $urls as &$url_key => &$url ): ?>
     <script type="text/javascript" src="<?php echo $url ?>"></script>
 <?php 
-endwhile;
+endforeach;
 unset( $urls ); ?>
           
 </head>

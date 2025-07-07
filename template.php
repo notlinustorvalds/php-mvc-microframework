@@ -147,7 +147,7 @@ class  Template {
         if( '_additional_css'  === $objProp )   {
             if( true === is_array( $value ) )   {
                 reset( $value );
-                while( list( $key, $url ) = each( $value ) )    {
+                foreach( $value as &$key => &$url ) {
                     if(     true === is_string( $url )
                         &&  false === in_array( $url, $this->_additional_css_urls )
                     )    {
@@ -175,7 +175,7 @@ class  Template {
         if( '_additional_js'  === $objProp )   {
             if( true === is_array( $value ) )   {
                 reset( $value );
-                while( list( $key, $url ) = each( $value ) )    {
+                foreach( $value as &$key => &$url ) {
                     if(     true === is_string( $url )
                         &&  false === in_array( $url, $this->_additional_js_urls )
                     )    {
@@ -255,7 +255,7 @@ class  Template {
             //         'js'  => "url" )
             if( true === is_array( $objProp ) ) {
                 reset( $objProp );
-                while( list( $key, $value ) = each( $objProp ) )    {
+                foreach( $objProp as &$key => &$value ) {
                     switch( $key )  {
                         case    'js'    :
                         case    '_additional_js'    :
@@ -322,7 +322,7 @@ class  Template {
             //         'js'  => "url" )
             if( true === is_array( $objProp ) )  {
                 reset( $objProp );
-                while( list( $key, $value ) = each( $objProp ) )    {
+                foreach( $objProp as &$key => &$value ) {
                     switch( $key )  {
                         case    'js'    :
                         case    '_additional_js'    :
